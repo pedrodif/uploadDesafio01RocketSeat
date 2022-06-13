@@ -26,6 +26,12 @@ export function TaskList() {
         isComplete: false
       };
       setTasks([...tasks, newTask])
+
+      //A atualização do estado aqui poderia ter sido feita também como uma callback
+      //garantido assim que mesmo que a renderização seja assíncrona,
+      //ainda assim será possível acessar os valores que estavam guardados no estado
+      //através do spread operator independente de demoras de atualização:
+      //setTasks(oldState => ([...oldState, newTask]));
       setNewTaskTitle('')
     };
   };
